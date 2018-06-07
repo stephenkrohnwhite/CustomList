@@ -1,0 +1,17 @@
+C:\Users\steph\source\repos\CustomList\UnitTestProject3\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\steph\source\repos\CustomList\UnitTestProject3\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\steph\source\repos\CustomList\UnitTestProject3\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\steph\source\repos\CustomList\UnitTestProject3\bin\Debug\UnitTestProject3.dll
+C:\Users\steph\source\repos\CustomList\UnitTestProject3\bin\Debug\UnitTestProject3.pdb
+C:\Users\steph\source\repos\CustomList\UnitTestProject3\bin\Debug\CustomList.exe
+C:\Users\steph\source\repos\CustomList\UnitTestProject3\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\steph\source\repos\CustomList\UnitTestProject3\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\steph\source\repos\CustomList\UnitTestProject3\bin\Debug\CustomList.pdb
+C:\Users\steph\source\repos\CustomList\UnitTestProject3\bin\Debug\CustomList.exe.config
+C:\Users\steph\source\repos\CustomList\UnitTestProject3\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\steph\source\repos\CustomList\UnitTestProject3\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\steph\source\repos\CustomList\UnitTestProject3\obj\Debug\CustomListUnitTesting.csprojResolveAssemblyReference.cache
+C:\Users\steph\source\repos\CustomList\UnitTestProject3\obj\Debug\CustomListUnitTesting.csproj.CoreCompileInputs.cache
+C:\Users\steph\source\repos\CustomList\UnitTestProject3\obj\Debug\CustomListUnitTesting.csproj.CopyComplete
+C:\Users\steph\source\repos\CustomList\UnitTestProject3\obj\Debug\UnitTestProject3.dll
+C:\Users\steph\source\repos\CustomList\UnitTestProject3\obj\Debug\UnitTestProject3.pdb

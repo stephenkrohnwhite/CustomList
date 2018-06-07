@@ -10,6 +10,7 @@ namespace CustomList
     {
         private T[] array;
         private int capacity;
+        private int count;
         public T[] Array
         {
             get
@@ -32,6 +33,19 @@ namespace CustomList
                 capacity = value;
             }
         }
+        public int Count
+        {
+            get
+            {
+                return count;
+            }
+            set
+            {
+                count = value;
+                
+            }
+        }
+        
         T value;
         // Method that adds objects to instance of class
         // Method that remove objects to instance of class
@@ -42,12 +56,13 @@ namespace CustomList
         // Property for count
         // Method for Zip
 
-        public CustomList(int capacityValue)
+        public CustomList()
         {
-           Capacity = capacityValue;
+            Capacity = 5;
+            Count = 0;
+            Array = new T[Capacity];
 
         }
-        
         public T this[int i]
         {
             get
@@ -59,15 +74,22 @@ namespace CustomList
                 Array[i] = value;
             }
         }
-        
-       
-        public void Add()
+       public void CapacityCheck()
         {
-
+            if (Count > (Capacity - 2))
+            {
+                Capacity = Capacity += 5;
+            }
         }
-        public void Remove()
+        public void Add(T objectToAdd)
         {
-
+            Array[count] = objectToAdd;
+            Count++;
+            CapacityCheck();
+        }
+        public bool Remove(T objectToRemove)
+        {
+            
         }
         public void Iterate()
         {
@@ -85,10 +107,7 @@ namespace CustomList
         {
 
         }
-        public void Count()
-        {
-
-        }
+      
         public void Zip()
         {
 
