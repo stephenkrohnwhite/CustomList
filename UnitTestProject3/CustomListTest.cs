@@ -10,7 +10,6 @@ namespace UnitTestProject3
         
         // testMethod for overloading + operator
         // testMethod for overLoading - operator
-        // testMethod for count
         // testMethod for Zip
         
         [TestMethod]

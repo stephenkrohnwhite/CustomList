@@ -1,12 +1,13 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CustomList
+namespace CustomList 
 {
-    public class CustomList<T>
+    public class CustomList<T> : IEnumerable
     {
         private T[] array;
         private int capacity;
@@ -48,10 +49,8 @@ namespace CustomList
         
         T value;
 
-        // Use IEnumerator to make object iterable
         // Method for overloading + operator
         // Method for overLoading - operator
-        // Property for count
         // Method for Zip
 
         public CustomList()
@@ -150,6 +149,12 @@ namespace CustomList
         {
 
         }
-        public IEnumerable 
+        public IEnumerator GetEnumerator()
+        {
+            for(int i=0; i<Count; i++)
+            {
+                yield return Array[i];
+            }
+        }
     }
 }
