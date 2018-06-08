@@ -7,7 +7,7 @@ namespace UnitTestProject3
     [TestClass]
     public class CustomListTest
     {
-        // testMethod for overriding ToString - converts to string
+        
         // testMethod for overloading + operator
         // testMethod for overLoading - operator
         // testMethod for count
@@ -153,16 +153,6 @@ namespace UnitTestProject3
             // assert
             Assert.AreEqual(expectedResult, actualResult);
         }
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public void ToString_Exception_For_Empty_List()
-        {
-            // arrange
-            CustomList<int> List = new CustomList<int>();
-
-            // act
-            string stringList = List.ToString();
-
-        }
+       
     }
 }

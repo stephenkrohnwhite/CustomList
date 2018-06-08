@@ -49,7 +49,6 @@ namespace CustomList
         T value;
 
         // Use IEnumerator to make object iterable
-        // Method for overriding ToString - converts to string
         // Method for overloading + operator
         // Method for overLoading - operator
         // Property for count
@@ -126,6 +125,16 @@ namespace CustomList
         }
         public override string ToString()
         {
+            StringBuilder Builder = new StringBuilder();
+            for(int i=0; i<Count-1; i++)
+            {
+                Builder.Append(Array[i]).Append(", ");
+            }
+            for(int i=Count-1; i<Count;i++)
+            {
+                Builder.Append(Array[i]);
+            }
+            return Builder.ToString();
 
         }
         public void OverloadPlus()
@@ -141,5 +150,6 @@ namespace CustomList
         {
 
         }
+        public IEnumerable 
     }
 }
