@@ -152,6 +152,33 @@ namespace UnitTestProject3
             // assert
             Assert.AreEqual(expectedResult, actualResult);
         }
-       
+        [TestMethod]
+        public void Plus_Operator_Overload_Returns_New_CustomList()
+        {
+            // arrange
+            CustomList<int> ListA = new CustomList<int>();
+            CustomList<int> ListB = new CustomList<int>();  
+
+            // act
+            CustomList<int> actualResult = ListA.OverloadPlus(ListB);
+
+        }
+        [TestMethod]
+        public void Returned_Custom_List_Contains_Multiple_List_Objects()
+        {
+            // arrange
+            CustomList<int> ListA = new CustomList<int>() { 1, 4, 7 };
+            CustomList<int> ListB = new CustomList<int>() { 3, 5, 6 };
+            CustomList<int> expectedResult = new CustomList<int>() { 1, 4, 7, 3, 5, 6 };
+
+            // act
+            CustomList<int> actualResult = ListA.OverloadPlus(ListB);
+
+            // assert
+            Assert.AreEqual(expectedResult, actualResult);
+        }
+        
+
+
     }
 }

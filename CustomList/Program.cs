@@ -12,8 +12,14 @@ namespace CustomList
         {
             CustomList<int> List = new CustomList<int>();
             List.Add(1);
-            List.Add(3);
-            Console.WriteLine(List.ToString());
+            List.Add(1);
+            List.Add(1);
+            List.Add(1);
+            List.Add(1);
+            List.Add(1);
+            //List.Add(1);
+            //List.Add(3);
+            //Console.WriteLine(List.ToString());
         }
     }
 }

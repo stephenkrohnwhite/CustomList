@@ -9,18 +9,18 @@ namespace CustomList
 {
     public class CustomList<T> : IEnumerable
     {
-        private T[] array;
+        private T[] holder;
         private int capacity;
         private int count;
-        public T[] Array
+        public T[] Holder
         {
             get
             {
-                return array;
+                return holder;
             }
             set
             {
-                array = value;
+                holder = value;
             }
         }
         public int Capacity
@@ -57,18 +57,18 @@ namespace CustomList
         {
             Capacity = 5;
             Count = 0;
-            Array = new T[Capacity];
+            Holder = new T[Capacity];
 
         }
         public T this[int i]
         {
             get
             {
-                return Array[i];
+                return Holder[i];
             }
             set
             {
-                Array[i] = value;
+                Holder[i] = value;
             }
         }
        public void CapacityCheck()
@@ -76,11 +76,12 @@ namespace CustomList
             if (Count > (Capacity - 2))
             {
                 Capacity = Capacity += 5;
+                Array.Resize(ref holder, Capacity);
             }
         }
         public void Add(T objectToAdd)
         {
-            Array[count] = objectToAdd;
+            Holder[count] = objectToAdd;
             Count++;
             CapacityCheck();
         }
@@ -89,19 +90,19 @@ namespace CustomList
             CustomList<T> tempList = new CustomList<T>();
             for(int i=0; i<Count; i++)
             {
-                if(!Array[i].Equals(objectToRemove))
+                if(!Holder[i].Equals(objectToRemove))
                 {
-                    tempList.Add(Array[i]);
+                    tempList.Add(Holder[i]);
                 }
-                else if(Array[i].Equals(objectToRemove))
+                else if(Holder[i].Equals(objectToRemove))
                 {
                     for(int j = i+1; j<Count; j++)
                     {
-                        tempList.Add(Array[j]);
+                        tempList.Add(Holder[j]);
                     }
                     if(LengthValidator(tempList) == true)
                     {
-                        Array = tempList.Array;
+                        Holder = tempList.Holder;
                         Count--;
                         return true;
                     }
@@ -127,11 +128,11 @@ namespace CustomList
             StringBuilder Builder = new StringBuilder();
             for(int i=0; i<Count-1; i++)
             {
-                Builder.Append(Array[i]).Append(", ");
+                Builder.Append(Holder[i]).Append(", ");
             }
             for(int i=Count-1; i<Count;i++)
             {
-                Builder.Append(Array[i]);
+                Builder.Append(Holder[i]);
             }
             return Builder.ToString();
 
@@ -153,7 +154,7 @@ namespace CustomList
         {
             for(int i=0; i<Count; i++)
             {
-                yield return Array[i];
+                yield return Holder[i];
             }
         }
     }
