@@ -47,9 +47,8 @@ namespace CustomList
         }
         
         T value;
-        // Method that adds objects to instance of class
-        // Method that remove objects to instance of class
-        // Method that allows iteration
+
+        // Use IEnumerator to make object iterable
         // Method for overriding ToString - converts to string
         // Method for overloading + operator
         // Method for overLoading - operator
@@ -89,13 +88,43 @@ namespace CustomList
         }
         public bool Remove(T objectToRemove)
         {
-            
-        }
-        public void Iterate()
-        {
+            CustomList<T> tempList = new CustomList<T>();
+            for(int i=0; i<Count; i++)
+            {
+                if(!Array[i].Equals(objectToRemove))
+                {
+                    tempList.Add(Array[i]);
+                }
+                else if(Array[i].Equals(objectToRemove))
+                {
+                    for(int j = i+1; j<Count; j++)
+                    {
+                        tempList.Add(Array[j]);
+                    }
+                    if(LengthValidator(tempList) == true)
+                    {
+                        Array = tempList.Array;
+                        Count--;
+                        return true;
+                    }
+                }
 
+            }
+            return false;
         }
-        public void ConvertToString()
+
+        private bool LengthValidator(CustomList<T> arrayBuild)
+        {
+            if(arrayBuild.Count == (Count-1))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public override string ToString()
         {
 
         }

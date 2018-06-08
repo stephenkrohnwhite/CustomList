@@ -109,7 +109,7 @@ namespace UnitTestProject3
         {
             // arrange
             CustomList<int> integerList = new CustomList<int>();
-            int expectedResult = 3;
+            int expectedResult = 1;
 
             // act
             integerList.Add(1);
@@ -121,6 +121,48 @@ namespace UnitTestProject3
 
             // assert
             Assert.AreEqual(expectedResult, actualResult);
+        }
+        [TestMethod]
+        public void ToString_Method_Returns_CustomList_As_String()
+        {
+            // arrange
+            CustomList<int> List = new CustomList<int>();
+            string expectedResult = "1, 2";
+
+            // act
+            List.Add(1);
+            List.Add(2);
+            string actualResult = List.ToString();
+
+            // assert
+            Assert.AreEqual(expectedResult, actualResult);
+        }
+        [TestMethod]
+        public void ToString_Method_Returns_Expected_CharLength()
+        {
+            // arrange
+            CustomList<int> List = new CustomList<int>();
+            int expectedResult = 4;
+
+            // act
+            List.Add(1);
+            List.Add(7);
+            string stringList = List.ToString();
+            int actualResult = stringList.Length;
+
+            // assert
+            Assert.AreEqual(expectedResult, actualResult);
+        }
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void ToString_Exception_For_Empty_List()
+        {
+            // arrange
+            CustomList<int> List = new CustomList<int>();
+
+            // act
+            string stringList = List.ToString();
+
         }
     }
 }
