@@ -10,16 +10,11 @@ namespace CustomList
     {
         static void Main(string[] args)
         {
-            CustomList<int> List = new CustomList<int>();
-            List.Add(1);
-            List.Add(1);
-            List.Add(1);
-            List.Add(1);
-            List.Add(1);
-            List.Add(1);
-            //List.Add(1);
-            //List.Add(3);
-            //Console.WriteLine(List.ToString());
+            List<int> ListA = new List<int>() { 1, 2 };
+            List<int> ListB = new List<int>() { 4, 6 };
+            List<int> ListC = ListA + ListB;
+            Console.WriteLine(ListC.ToString());
+            Console.ReadLine();
         }
     }
 }

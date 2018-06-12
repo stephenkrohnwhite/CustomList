@@ -49,7 +49,6 @@ namespace CustomList
         
         T value;
 
-        // Method for overloading + operator
         // Method for overLoading - operator
         // Method for Zip
 
@@ -137,10 +136,21 @@ namespace CustomList
             return Builder.ToString();
 
         }
-        public void OverloadPlus()
+        public static CustomList<T> operator+ (CustomList<T> ListA, CustomList<T> ListB)
         {
+            CustomList<T> ListBuilder = new CustomList<T>();
+            for (int i = 0; i < ListA.Count; i++)
+            {
+                ListBuilder.Add(ListA.Holder[i]);
+            }
+            for (int j = 0; j < ListB.Count; j++)
+            {
+                ListBuilder.Add(ListB.Holder[j]);
+            }
+            return ListBuilder;
 
         }
+
         public void OverloadMinus()
         {
 
