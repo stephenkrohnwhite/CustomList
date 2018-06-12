@@ -136,19 +136,51 @@ namespace CustomList
             return Builder.ToString();
 
         }
-        public static CustomList<T> operator+ (CustomList<T> ListA, CustomList<T> ListB)
+        public static CustomList<T> operator+ (CustomList<T> listA, CustomList<T> listB)
         {
-            CustomList<T> ListBuilder = new CustomList<T>();
-            for (int i = 0; i < ListA.Count; i++)
+            CustomList<T> listBuilder = new CustomList<T>();
+            for (int i = 0; i < listA.Count; i++)
             {
-                ListBuilder.Add(ListA.Holder[i]);
+                listBuilder.Add(listA.Holder[i]);
             }
-            for (int j = 0; j < ListB.Count; j++)
+            for (int j = 0; j < listB.Count; j++)
             {
-                ListBuilder.Add(ListB.Holder[j]);
+                listBuilder.Add(listB.Holder[j]);
             }
-            return ListBuilder;
+            return listBuilder;
 
+        }
+        public static CustomList<T> operator- (CustomList<T> listFrom, CustomList<T> minusList)
+        {
+            CustomList<T> returnList = new CustomList<T>();
+            CustomListCopier(listFrom, returnList);
+            CustomList<T> reducedCapacityList = new CustomList<T>();
+            reducedCapacityList = CustomListCapacityShrink(minusList);
+            for (int i = 0; i <listFrom.Count; i++)
+            {
+                if (reducedCapacityList.Holder.Contains(listFrom[i]))
+                {
+                    returnList.Remove(listFrom[i]);
+                    reducedCapacityList.Remove(listFrom[i]);
+                    reducedCapacityList = CustomListCapacityShrink(reducedCapacityList);
+                }
+            }
+            return returnList;
+        }
+        public static CustomList<T> CustomListCapacityShrink(CustomList<T> listToShrink)
+        {
+            CustomList<T> resizedList = new CustomList<T>();
+            CustomListCopier(listToShrink, resizedList);
+            resizedList.Capacity = resizedList.Count;
+            Array.Resize(ref resizedList.holder, resizedList.Capacity);
+            return resizedList;
+        }
+        private static void CustomListCopier(CustomList<T> listFrom, CustomList<T> returnList)
+        {
+            for(int i=0; i <listFrom.Count; i++)
+            {
+                returnList.Add(listFrom[i]);
+            }
         }
 
         public void OverloadMinus()

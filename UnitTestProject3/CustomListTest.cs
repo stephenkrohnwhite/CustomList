@@ -230,7 +230,7 @@ namespace UnitTestProject3
             // arrange
             CustomList<int> ListA = new CustomList<int>() { 6, 4, 0, 7, 9 };
             CustomList<int> ListB = new CustomList<int>() { 7, 9, 11 };
-            int expectedResult = 4;
+            int expectedResult = 3;
 
             // act
             CustomList<int> ListC = ListA - ListB;
@@ -239,7 +239,22 @@ namespace UnitTestProject3
             // assert
             Assert.AreEqual(expectedResult, actualResult);
         }
+        [TestMethod]
+        public void Minus_OverLoad_Removes_Correct_Number_Of_Instances()
+        {
+            // arrange
+            CustomList<int> ListA = new CustomList<int>() { 6, 4, 7, 7, 7 };
+            CustomList<int> ListB = new CustomList<int>() { 7, 7, 11 };
+            int expectedResult = 3;
 
+            // act
+            CustomList<int> ListC = ListA - ListB;
+            int actualResult = ListC.Count;
+
+            // assert
+            Assert.AreEqual(expectedResult, actualResult);
+
+        }
 
 
     }

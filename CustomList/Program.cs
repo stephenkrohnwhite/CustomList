@@ -10,10 +10,10 @@ namespace CustomList
     {
         static void Main(string[] args)
         {
-            List<int> ListA = new List<int>() { 1, 2 };
-            List<int> ListB = new List<int>() { 4, 6 };
-            List<int> ListC = ListA + ListB;
-            Console.WriteLine(ListC.ToString());
+            CustomList<int> listA = new CustomList<int>() { 6, 4, 0, 7, 9 };
+            CustomList<int> listB = new CustomList<int>() { 7, 9, 11 };
+            CustomList<int> listC = listA - listB;
+            Console.WriteLine(listC.ToString());
             Console.ReadLine();
         }
     }
