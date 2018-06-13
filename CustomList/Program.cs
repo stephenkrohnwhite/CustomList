@@ -12,7 +12,7 @@ namespace CustomList
         {
             CustomList<int> listA = new CustomList<int>() { 6, 4, 0, 7, 9 };
             CustomList<int> listB = new CustomList<int>() { 7, 9, 11 };
-            CustomList<int> listC = listA - listB;
+            CustomList<int> listC = listA.Zip(listA, listB);
             Console.WriteLine(listC.ToString());
             Console.ReadLine();
         }

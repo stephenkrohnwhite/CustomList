@@ -49,7 +49,7 @@ namespace CustomList
         
         T value;
 
-        // Method for overLoading - operator
+        // Make Array Resize method
         // Method for Zip
 
         public CustomList()
@@ -75,9 +75,20 @@ namespace CustomList
             if (Count > (Capacity - 2))
             {
                 Capacity = Capacity += 5;
-                Array.Resize(ref holder, Capacity);
+                Holder = ArrayResize(Holder, holder.Length, Capacity);
             }
         }
+
+        private static T[] ArrayResize(T[] startingArray, int elementLength, int size)
+        {
+            T[] resizedArray = new T[size];
+            for(int i = 0; i < elementLength; i++)
+            {
+                    resizedArray[i] = startingArray[i];
+            }
+            return resizedArray;
+        }
+
         public void Add(T objectToAdd)
         {
             Holder[count] = objectToAdd;
@@ -172,7 +183,7 @@ namespace CustomList
             CustomList<T> resizedList = new CustomList<T>();
             CustomListCopier(listToShrink, resizedList);
             resizedList.Capacity = resizedList.Count;
-            Array.Resize(ref resizedList.holder, resizedList.Capacity);
+            resizedList.Holder = ArrayResize(resizedList.Holder, resizedList.Count, resizedList.Count);
             return resizedList;
         }
         private static void CustomListCopier(CustomList<T> listFrom, CustomList<T> returnList)
@@ -183,15 +194,32 @@ namespace CustomList
             }
         }
 
-        public void OverloadMinus()
+        public CustomList<T> Zip(CustomList<T> listA, CustomList<T> listB)
         {
+            CustomList<T> zippedList = new CustomList<T>();
+            int zipLength = GetSmallerCount(listA, listB);
+            for(int i =0; i<zipLength; i++)
+            {
+                zippedList.Add(listA[i]);
+                zippedList.Add(listB[i]);
+
+            }
+            return zippedList;
 
         }
-      
-        public void Zip()
-        {
 
+        private int GetSmallerCount(CustomList<T> listA, CustomList<T> listB)
+        {
+            if(listA.Count <= listB.Count)
+            {
+                return listA.Count;
+            }
+            else
+            {
+                return listB.Count;
+            }
         }
+
         public IEnumerator GetEnumerator()
         {
             for(int i=0; i<Count; i++)

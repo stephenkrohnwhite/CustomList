@@ -255,6 +255,53 @@ namespace UnitTestProject3
             Assert.AreEqual(expectedResult, actualResult);
 
         }
+        [TestMethod]
+        public void Zipped_CustomList_Count_Equals_Expected_Int()
+        {
+            // arrange
+            CustomList<int> listA = new CustomList<int>() { 1, 4, 5, 7 };
+            CustomList<int> listB = new CustomList<int>() { 3, 7 };
+            int expectedResult = 4;
+
+            // act
+            CustomList<int> listC = listA.Zip(listA, listB);
+            int actualResult = listC.Count;
+
+            // assert
+            Assert.AreEqual(expectedResult, actualResult);
+
+        }
+        [TestMethod]
+        public void Zipped_CustomList_Index_Equals_Expected_Int()
+        {
+            // arrange
+            CustomList<int> listA = new CustomList<int>() { 1, 4, 5, 7 };
+            CustomList<int> listB = new CustomList<int>() { 3, 7, 11 };
+            int expectedResult = 4;
+
+            // act
+            CustomList<int> listC = listA.Zip(listA, listB);
+            int actualResult = listC[2];
+
+            // assert
+            Assert.AreEqual(expectedResult, actualResult);
+        }
+        [TestMethod]
+        public void Zipped_CustomList_Empty_If_One_List_Empty()
+        {
+            // arrange
+            CustomList<int> listA = new CustomList<int>() { 1, 4, 5, 7 };
+            CustomList<int> listB = new CustomList<int>();
+            int expectedResult = 0;
+
+            // act
+            CustomList<int> listC = listA.Zip(listA, listB);
+            int actualResult = listC.Count;
+
+            // assert
+            Assert.AreEqual(expectedResult, actualResult);
+
+        }
 
 
     }
