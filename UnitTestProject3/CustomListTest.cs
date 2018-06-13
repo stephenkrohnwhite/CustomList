@@ -302,7 +302,34 @@ namespace UnitTestProject3
             Assert.AreEqual(expectedResult, actualResult);
 
         }
+        [TestMethod]
+        public void Sorted_List_Index_Equals_Expected_Value()
+        {
+            // arrange
+            CustomList<int> list = new CustomList<int>() { 1, 6, 3, 4 };
+            int expectedResult = 3;
 
+            // act
+            CustomList<int> listB = list.Sort(list);
+            int actualResult = listB[1];
+
+            // assert
+            Assert.AreEqual(expectedResult, actualResult);
+        }
+        [TestMethod]
+        public void Sorted_List_Count_Equals_Expected_Value()
+        {
+            // arrange
+            CustomList<int> list = new CustomList<int>() { 1, 6, 3, 4 };
+            int expectedResult = 4;
+
+            // act
+            CustomList<int> listB = list.Sort(list);
+            int actualResult = listB.Count;
+
+            // assert
+            Assert.AreEqual(expectedResult, actualResult);
+        }
 
     }
 }

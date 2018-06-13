@@ -227,5 +227,28 @@ namespace CustomList
                 yield return Holder[i];
             }
         }
+        // BONUS - SORT METHOD
+        // I used an insertion sort, mainly because I could uunderstand the algorithm. It uses a nested for loop where the outer
+        // loop iterates over the entire array except the last index value. The inner loop starts at index 1 and compares that
+        // index to the previous index. If the higher index value is greater, it stores the previous index value to a temporary
+        // integer, reassisgns the previous index value to that of the current one, then reassigns the current index to teh
+        // temp value. the inner looping index value (j) reduces by 1 and if it is not greater than 0, it goes back to the outer
+        // loop. It does this so that the index values are continually reassigned as you progress through the outer loop. 
+        public CustomList<int> Sort(CustomList<int> inputList)
+        {
+            for (int i = 0; i < inputList.Count - 1; i++)
+            {
+                for (int j = i + 1; j > 0; j--)
+                {
+                    if (inputList.Holder[j - 1] > inputList.Holder[j])
+                    {
+                        int temp = inputList.Holder[j - 1];
+                        inputList.Holder[j - 1] = inputList.Holder[j];
+                        inputList.Holder[j] = temp;
+                    }
+                }
+            }
+            return inputList;
+        }
     }
 }
