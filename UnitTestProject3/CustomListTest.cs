@@ -7,9 +7,7 @@ namespace UnitTestProject3
     [TestClass]
     public class CustomListTest
     {
-        // testMethod for overLoading - operator
-        // testMethod for Zip
-        
+
         [TestMethod]
         public void Add_Generic_To_CustomList_Expect_Generic_In_CustomList()
         {
@@ -22,6 +20,25 @@ namespace UnitTestProject3
 
             // assert
             Assert.AreEqual(expectedResult, num[0]);
+        }
+        [TestMethod]
+        [ExpectedException(typeof(IndexOutOfRangeException))]
+        public void Indexer_Throw_Expected_IndexOutOfRangeException()
+        {
+            // Arrange
+            int itemsToAdd = 4;
+            int index = 11;
+            CustomList<int> j = new CustomList<int>();
+            for (int i = 0; i < itemsToAdd; i++)
+            {
+                j.Add(i);
+            }
+
+            // Act
+            int actual = j[index];
+
+            // Assert
+
         }
         [TestMethod]
         public void Count_Property_Equals_NotNull_Generics()
@@ -98,6 +115,21 @@ namespace UnitTestProject3
             integerList.Add(2);
             bool actualResult = integerList.Remove(7);
            
+            // assert
+            Assert.AreEqual(expectedResult, actualResult);
+        }
+        [TestMethod]
+        public void Remove_Returns_True_When_Remove_Successful()
+        {
+            // arrange
+            CustomList<int> integerList = new CustomList<int>();
+            bool expectedResult = true;
+
+            // act
+            integerList.Add(1);
+            integerList.Add(2);
+            bool actualResult = integerList.Remove(2);
+
             // assert
             Assert.AreEqual(expectedResult, actualResult);
         }
@@ -180,22 +212,7 @@ namespace UnitTestProject3
             // assert
             Assert.AreEqual(expectedResult, actualResult);
         }
-        [TestMethod]
-        public void Minus_Operator_Overload_Returns_New_CustomList()
-        {
-            // arrange
-            CustomList<int> ListA = new CustomList<int>();
-            CustomList<int> ListB = new CustomList<int>();
-            Type expectedResult = ListA.GetType();
 
-            // act
-            CustomList<int> ListC = ListA - ListB;
-            Type actualResult = ListC.GetType();
-
-            // assert
-            Assert.AreEqual(expectedResult, actualResult);
-
-        }
         [TestMethod]
         public void Minus_OverLoad_Returns_Expected_Removed_Index()
         {
@@ -207,6 +224,20 @@ namespace UnitTestProject3
             // act
             CustomList<int> ListC = ListA - ListB;
             int actualResult = ListC[0];
+            // assert
+            Assert.AreEqual(expectedResult, actualResult);
+        }
+        [TestMethod]
+        public void Minus_OverLoad_Index_Is_Expected_When_Nothing_Subtracted()
+        {
+            // arrange
+            CustomList<int> ListA = new CustomList<int>() { 3, 4, 6 };
+            CustomList<int> ListB = new CustomList<int>() { 1, 5, 7 };
+            int expectedResult = 4;
+
+            // act
+            CustomList<int> ListC = ListA - ListB;
+            int actualResult = ListC[1];
             // assert
             Assert.AreEqual(expectedResult, actualResult);
         }

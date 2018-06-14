@@ -10,10 +10,9 @@ namespace CustomList
     {
         static void Main(string[] args)
         {
-            CustomList<int> listA = new CustomList<int>() { 6, 4, 0, 7, 9 };
-            CustomList<int> listB = new CustomList<int>() { 7, 9, 11 };
-            CustomList<int> listC = listA.Sort(listA);
-            Console.WriteLine(listC.ToString());
+            CustomList<int> listA = new CustomList<int>() { 7, 4, 0, 7, 9 };
+            listA.Add(listA[11]);
+
             Console.ReadLine();
         }
     }
