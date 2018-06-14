@@ -49,14 +49,6 @@ namespace CustomList
         
         T value;
 
-        // 1. I might try to add a a test case or two where you would expect an exception to be 
-        // thrown.An example of this would be create a new list<int> and then add 2 items to it.Then try to grab index 5.
-        // It should throw an exception at this point because your array holds 5 items, but the last index of it would be list[4]. 
-        // We would expect to see an exception thrown at that point - an out of range exception.
-
-
-        //5. Add a minus -overload where nothing gets removed, and the indices are same.
-
         public CustomList()
         {
             capacity = 5;
